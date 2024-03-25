@@ -1,0 +1,23 @@
+<?php
+// Example transfer_callback.php
+
+if ($_POST['Digits'] === '1') {
+    // If "1" is pressed, initiate call transfer to +1966498032
+    header("Content-Type: text/xml");
+    echo '<?xml version="1.0" encoding="UTF-8"?>
+        <Response>
+            <Dial>
+                <Number>+1966498032</Number>
+            </Dial>
+        </Response>';
+    exit;
+} else {
+    // If no action is taken or invalid input, do nothing
+    header("Content-Type: text/xml");
+    echo '<?xml version="1.0" encoding="UTF-8"?>
+        <Response>
+            <Hangup/>
+        </Response>';
+    exit;
+}
+?>
